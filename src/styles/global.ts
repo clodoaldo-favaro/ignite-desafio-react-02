@@ -9,19 +9,54 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
         outline: 0;
-        box-shadow: 0 0 0 2px ${(props) => props.theme['green-500']};
+        box-shadow: 0 0 0 2px ${(props) => props.theme['purple-dark']};
     }
 
     body {
-        background: ${(props) => props.theme['gray-900']};
-        color: ${(props) => props.theme['gray-300']};
+        background: ${(props) => props.theme.background};
+        color: ${(props) => props.theme.text};
         -webkit-font-smoothing: antialiased;
     }
 
     body, input, textarea, button {
-        font-family: sans-serif;
+        font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 1rem;
+    }
+
+    h1 {
+        font-size: ${(props) => props.theme['title-xl']};
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        color: ${(props) => props.theme.title};
+    }
+
+    h2 {
+        font-size: ${(props) => props.theme['title-l']};
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        color: ${(props) => props.theme.subtitle};
+    }
+
+    h3 {
+        font-size: ${(props) => props.theme['title-m']};
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        color: ${(props) => props.theme.subtitle};
+    }
+
+    h4 {
+        font-size: ${(props) => props.theme['title-s']};
+        font-family: 'Baloo 2', cursive;
+        font-weight: 700;
+        color: ${(props) => props.theme.subtitle};
+    }
+
+    h5 {
+        font-size: ${(props) => props.theme['title-xs']};
+        font-family: 'Baloo 2', cursive;
+        font-weight: 700;
+        color: ${(props) => props.theme.subtitle};
     }
 
 `
