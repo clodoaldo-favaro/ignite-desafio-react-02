@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 1rem;
+        line-height: 1.3;
     }
 
     h1 {
@@ -29,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Baloo 2', cursive;
         font-weight: 800;
         color: ${(props) => props.theme.title};
+        margin-bottom: 1.6rem;
     }
 
     h2 {
