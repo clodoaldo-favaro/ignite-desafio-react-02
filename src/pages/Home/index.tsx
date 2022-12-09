@@ -5,8 +5,6 @@ export function Home() {
   return (
     <HomeContainer>
       <Intro />
-      <Intro />
-      <Intro />
     </HomeContainer>
   )
 }

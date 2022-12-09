@@ -9,6 +9,6 @@ export const LayoutContainer = styled.div`
   padding: 0 10rem;
 
   @media (min-width: 1600px) {
-    padding: 0 20rem;
+    padding: 0 15rem;
   }
 `
