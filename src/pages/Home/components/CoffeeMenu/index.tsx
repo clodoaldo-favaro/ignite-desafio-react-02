@@ -1,4 +1,5 @@
-import { CoffeeCard, CoffeeMenuContainer } from './styles'
+import { CoffeeMenuContainer } from './styles'
+import { CoffeeCard } from '../CoffeeCard'
 import imgExpressoTradicional from '../../../../assets/coffee-menu/expresso-tradicional.svg'
 
 export function CoffeeMenu() {
@@ -6,12 +7,13 @@ export function CoffeeMenu() {
     <CoffeeMenuContainer>
       <h2>Nossos cafés</h2>
       <div>
-        <CoffeeCard>
-          <img src={imgExpressoTradicional} alt="" />
-        </CoffeeCard>
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
+        <CoffeeCard
+          id="1"
+          name="Expresso Tradicional"
+          imgSrc={imgExpressoTradicional}
+          description="O tradicional café feito com água quente e grãos moídos"
+          types={[{ id: '1', description: 'tradicional' }]}
+        ></CoffeeCard>
       </div>
     </CoffeeMenuContainer>
   )
