@@ -20,6 +20,8 @@ export const CoffeeCardContainer = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 0.4rem;
+    position: relative;
+    top: -0.5rem;
   }
 
   img {
@@ -27,6 +29,6 @@ export const CoffeeCardContainer = styled.div`
     height: 7.5rem;
 
     position: relative;
-    top: -20px;
+    top: -1.25rem;
   }
 `
