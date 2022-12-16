@@ -1,22 +1,35 @@
 import { CoffeeCardContainer } from './styles'
+import { CoffeeTypeTag } from '../CoffeeTypeTag'
 
-interface CoffeeType {
-  id: string
-  description: string
-}
-
-export interface CoffeeCardProps {
+export interface CoffeeProps {
   id: string
   name: string
   description: string
   imgSrc: string
-  types: CoffeeType[]
+  types: string[]
+  price: number
+  quantity: number
 }
 
-export function CoffeeCard(props: CoffeeCardProps) {
+export function CoffeeCard({
+  id,
+  name,
+  description,
+  imgSrc,
+  types,
+  price,
+  quantity,
+}: CoffeeProps) {
   return (
     <CoffeeCardContainer>
-      <img src={props.imgSrc} alt="" />
+      <img src={imgSrc} alt="" />
+      <ul>
+        {types.map((type) => (
+          <li key={type}>
+            <CoffeeTypeTag key={type} type={type} />
+          </li>
+        ))}
+      </ul>
     </CoffeeCardContainer>
   )
 }

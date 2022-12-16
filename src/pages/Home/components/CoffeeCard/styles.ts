@@ -15,6 +15,13 @@ export const CoffeeCardContainer = styled.div`
 
   border-radius: 6px 36px 6px 36px;
 
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+
   img {
     width: 7.5rem;
     height: 7.5rem;
