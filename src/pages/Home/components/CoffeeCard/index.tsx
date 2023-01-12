@@ -1,5 +1,6 @@
 import { CoffeeCardContainer } from './styles'
 import { CoffeeTypeTag } from '../CoffeeTypeTag'
+import { NumericInput } from '../../../../components/NumericInput'
 
 export interface CoffeeProps {
   id: string
@@ -38,6 +39,9 @@ export function CoffeeCard({
         <footer>
           <div>
             <p>{formattedPrice}</p>
+          </div>
+          <div>
+            <NumericInput />
           </div>
         </footer>
       </div>
