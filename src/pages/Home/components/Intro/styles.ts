@@ -13,6 +13,10 @@ export const IntroContainer = styled.section`
     flex-direction: column;
     justify-content: space-between;
   }
+
+  > div > img {
+    max-width: 100%;
+  }
 `
 
 export const FeaturesContainer = styled.div`

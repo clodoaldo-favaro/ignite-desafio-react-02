@@ -20,16 +20,27 @@ export function CoffeeCard({
   price,
   quantity,
 }: CoffeeProps) {
+  const formattedPrice = price.toFixed(2).replace('.', ',')
+
   return (
     <CoffeeCardContainer>
-      <img src={imgSrc} alt="" />
-      <ul>
-        {types.map((type) => (
-          <li key={type}>
-            <CoffeeTypeTag key={type} type={type} />
-          </li>
-        ))}
-      </ul>
+      <div>
+        <img src={imgSrc} alt="" />
+        <ul>
+          {types.map((type) => (
+            <li key={type}>
+              <CoffeeTypeTag key={type} type={type} />
+            </li>
+          ))}
+        </ul>
+        <h4>{name}</h4>
+        <p>{description}</p>
+        <footer>
+          <div>
+            <p>{formattedPrice}</p>
+          </div>
+        </footer>
+      </div>
     </CoffeeCardContainer>
   )
 }

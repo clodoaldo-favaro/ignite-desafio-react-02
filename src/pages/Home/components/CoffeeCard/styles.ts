@@ -5,15 +5,18 @@ export const CoffeeCardContainer = styled.div`
   max-width: 16rem;
   height: 19.375rem;
 
-  padding: 0 1.5rem 1.25rem 1.5rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   background: ${(props) => props.theme.card};
 
   border-radius: 6px 36px 6px 36px;
+
+  > div {
+    position: relative;
+    padding: 0 1.5rem 1.25rem 1.5rem;
+    top: -1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   ul {
     list-style: none;
@@ -21,14 +24,46 @@ export const CoffeeCardContainer = styled.div`
     justify-content: space-between;
     gap: 0.4rem;
     position: relative;
-    top: -0.5rem;
+    margin-bottom: 1rem;
   }
 
   img {
     width: 7.5rem;
     height: 7.5rem;
+    margin-bottom: 0.75rem;
+  }
 
-    position: relative;
-    top: -1.25rem;
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: ${(props) => props.theme.label};
+    text-align: center;
+  }
+
+  footer {
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    div:first-of-type {
+      p {
+        color: ${(props) => props.theme.text};
+        font-weight: bold;
+        font-size: ${(props) => props.theme['title-m']};
+        font-family: 'Baloo 2', cursive;
+      }
+
+      p::before {
+        content: 'R$';
+        margin-right: 0.2rem;
+        font-weight: normal;
+        font-family: 'Roboto', sans-serif;
+        font-size: ${(props) => props.theme['text-s']};
+      }
+    }
   }
 `

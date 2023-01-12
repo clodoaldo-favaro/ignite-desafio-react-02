@@ -12,6 +12,8 @@ export const HeaderContainer = styled.header`
   width: 100%;
   height: 6.5rem;
 
+  z-index: 1000;
+
   background: ${(props) => props.theme.background};
 
   img {
