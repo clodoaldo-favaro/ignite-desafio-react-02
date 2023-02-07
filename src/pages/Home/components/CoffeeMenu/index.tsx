@@ -15,7 +15,6 @@ export function CoffeeMenu() {
       imgSrc: imgExpressoTradicional,
       types: ['TRADICIONAL'],
       price: 9.9,
-      quantity: 1,
     },
     {
       id: '2',
@@ -24,7 +23,6 @@ export function CoffeeMenu() {
       imgSrc: imgExpressoAmericano,
       types: ['TRADICIONAL'],
       price: 9.9,
-      quantity: 1,
     },
     {
       id: '3',
@@ -33,7 +31,6 @@ export function CoffeeMenu() {
       imgSrc: imgExpressoCremoso,
       types: ['TRADICIONAL'],
       price: 9.9,
-      quantity: 1,
     },
     {
       id: '4',
@@ -42,7 +39,6 @@ export function CoffeeMenu() {
       imgSrc: imgExpressoGelado,
       types: ['TRADICIONAL', 'GELADO'],
       price: 9.9,
-      quantity: 1,
     },
   ])
 
