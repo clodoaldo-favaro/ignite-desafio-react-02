@@ -1,15 +1,30 @@
 import { NumericInputContainer } from './styles'
 import { Minus, Plus } from 'phosphor-react'
-import { useState } from 'react'
 
-export function NumericInput() {
-  const [amount, setAmount] = useState(1)
+interface NumericInputProps {
+  quantity: number
+  onIncrement: () => void
+  onDecrement: () => void
+}
+
+export function NumericInput({
+  quantity,
+  onIncrement,
+  onDecrement,
+}: NumericInputProps) {
+  function handleIncrement() {
+    onIncrement()
+  }
+
+  function handleDecrement() {
+    onDecrement()
+  }
 
   return (
     <NumericInputContainer>
-      <Minus size={14} weight={'bold'} />
-      <span>{amount}</span>
-      <Plus size={14} weight={'bold'} />
+      <Minus size={14} weight={'bold'} onClick={handleDecrement} />
+      <span>{quantity}</span>
+      <Plus size={14} weight={'bold'} onClick={handleIncrement} />
     </NumericInputContainer>
   )
 }

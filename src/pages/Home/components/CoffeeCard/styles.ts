@@ -49,7 +49,10 @@ export const CoffeeCardContainer = styled.div`
     justify-content: space-between;
     width: 100%;
 
-    div:first-of-type {
+    > div:first-of-type {
+      display: flex;
+      align-items: center;
+
       p {
         color: ${(props) => props.theme.text};
         font-weight: bold;
@@ -63,6 +66,37 @@ export const CoffeeCardContainer = styled.div`
         font-weight: normal;
         font-family: 'Roboto', sans-serif;
         font-size: ${(props) => props.theme['text-s']};
+      }
+    }
+
+    > div:last-of-type {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 0.8rem;
+
+      button {
+        padding: 0.5rem;
+        width: 2.375rem;
+        height: 2.375rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: ${(props) => props.theme['purple-dark']};
+        color: ${(props) => props.theme.white};
+        border-radius: 8px;
+        border: none;
+      }
+
+      button > img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+      }
+
+      button:hover {
+        cursor: pointer;
       }
     }
   }

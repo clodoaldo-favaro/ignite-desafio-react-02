@@ -4,7 +4,6 @@ import mapPinFill from '../../assets/map-pin-fill.svg'
 import cart from '../../assets/cart.svg'
 
 import { NavLink } from 'react-router-dom'
-import { ShoppingCart } from 'phosphor-react'
 
 export function Header() {
   return (

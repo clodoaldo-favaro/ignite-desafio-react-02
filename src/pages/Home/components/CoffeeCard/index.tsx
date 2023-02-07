@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { CoffeeCardContainer } from './styles'
 import { CoffeeTypeTag } from '../CoffeeTypeTag'
 import { NumericInput } from '../../../../components/NumericInput'
+import CartWhite from '../../../../assets/cart-white.svg'
 
 export interface CoffeeProps {
   id: string
@@ -9,7 +11,6 @@ export interface CoffeeProps {
   imgSrc: string
   types: string[]
   price: number
-  quantity: number
 }
 
 export function CoffeeCard({
@@ -19,9 +20,23 @@ export function CoffeeCard({
   imgSrc,
   types,
   price,
-  quantity,
 }: CoffeeProps) {
   const formattedPrice = price.toFixed(2).replace('.', ',')
+  const [coffeeQuantity, setCoffeeQuantity] = useState(1)
+
+  function increment() {
+    setCoffeeQuantity(coffeeQuantity + 1)
+  }
+
+  function decrement() {
+    if (coffeeQuantity > 0) {
+      setCoffeeQuantity(coffeeQuantity - 1)
+    }
+  }
+
+  function handleAddToCart() {
+    console.log('adicionando ao carrinho')
+  }
 
   return (
     <CoffeeCardContainer>
@@ -41,7 +56,14 @@ export function CoffeeCard({
             <p>{formattedPrice}</p>
           </div>
           <div>
-            <NumericInput />
+            <NumericInput
+              quantity={coffeeQuantity}
+              onDecrement={decrement}
+              onIncrement={increment}
+            />
+            <button onClick={handleAddToCart}>
+              <img src={CartWhite} />
+            </button>
           </div>
         </footer>
       </div>
