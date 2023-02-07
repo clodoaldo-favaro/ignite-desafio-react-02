@@ -61,8 +61,11 @@ export function CoffeeCard({
               onDecrement={decrement}
               onIncrement={increment}
             />
-            <button onClick={handleAddToCart}>
-              <img src={CartWhite} />
+            <button
+              onClick={handleAddToCart}
+              title="Clique para adicionar ao carrinho"
+            >
+              <img src={CartWhite} alt="" />
             </button>
           </div>
         </footer>
