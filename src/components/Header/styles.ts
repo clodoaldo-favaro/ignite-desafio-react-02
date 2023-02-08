@@ -55,6 +55,23 @@ export const HeaderContainer = styled.header`
       height: 2.375rem;
       padding: 0.5rem;
       background: ${(props) => props.theme['yellow-light']};
+      position: relative;
+
+      > span {
+        position: absolute;
+        top: calc(-1.25rem / 2);
+        right: calc(-1.25rem / 2);
+        border-radius: 50%;
+        width: 1.25rem;
+        height: 1.25rem;
+        background: ${(props) => props.theme['yellow-dark']};
+        color: ${(props) => props.theme.white};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: ${(props) => props.theme['text-s']};
+      }
     }
   }
 `

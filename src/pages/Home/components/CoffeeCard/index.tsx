@@ -35,7 +35,16 @@ export function CoffeeCard({
   }
 
   function handleAddToCart() {
-    console.log('adicionando ao carrinho')
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: {
+        id,
+        name,
+        price,
+        quantity: coffeeQuantity,
+        imgSrc,
+      },
+    })
   }
 
   return (

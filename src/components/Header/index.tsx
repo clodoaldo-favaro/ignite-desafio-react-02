@@ -6,6 +6,8 @@ import cart from '../../assets/cart.svg'
 import { NavLink } from 'react-router-dom'
 
 export function Header() {
+  const counter = 0
+
   return (
     <HeaderContainer>
       <img src={logoCoffeeDelivery} alt="" />
@@ -16,6 +18,7 @@ export function Header() {
         </div>
         <NavLink to="/" title="Checkout">
           <img src={cart} alt="" />
+          {counter > 0 && <span>{counter}</span>}
         </NavLink>
       </nav>
     </HeaderContainer>
