@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { CoffeeCardContainer } from './styles'
 import { CoffeeTypeTag } from '../CoffeeTypeTag'
+import { CartItem } from '../../../../components/Header'
 import { NumericInput } from '../../../../components/NumericInput'
 import CartWhite from '../../../../assets/cart-white.svg'
 
@@ -13,14 +14,15 @@ export interface CoffeeProps {
   price: number
 }
 
+interface CoffeeCardProps {
+  coffee: CoffeeProps
+  onAddToCart: (item: CartItem) => void
+}
+
 export function CoffeeCard({
-  id,
-  name,
-  description,
-  imgSrc,
-  types,
-  price,
-}: CoffeeProps) {
+  coffee: { id, name, description, imgSrc, types, price },
+  onAddToCart,
+}: CoffeeCardProps) {
   const formattedPrice = price.toFixed(2).replace('.', ',')
   const [coffeeQuantity, setCoffeeQuantity] = useState(1)
 
@@ -35,16 +37,8 @@ export function CoffeeCard({
   }
 
   function handleAddToCart() {
-    dispatch({
-      type: 'ADD_TO_CART',
-      payload: {
-        id,
-        name,
-        price,
-        quantity: coffeeQuantity,
-        imgSrc,
-      },
-    })
+    debugger
+    onAddToCart({ id, name, price, quantity: coffeeQuantity, imgSrc })
   }
 
   return (

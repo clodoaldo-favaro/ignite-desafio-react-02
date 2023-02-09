@@ -4,9 +4,24 @@ import mapPinFill from '../../assets/map-pin-fill.svg'
 import cart from '../../assets/cart.svg'
 
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+
+export interface CartItem {
+  id: string
+  name: string
+  price: number
+  quantity: number
+  imgSrc: string
+}
+
+interface CartProps {
+  cartItems: CartItem[]
+}
 
 export function Header() {
-  const counter = 0
+  const [cartItems, setCartItems] = useState([])
+
+  const counter = cartItems.length
 
   return (
     <HeaderContainer>
