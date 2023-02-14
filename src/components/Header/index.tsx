@@ -30,16 +30,18 @@ export function Header({ cartItems }: HeaderProps) {
               <img src={logoCoffeeDelivery} alt="" />
             </NavLink>
           </li>
-          <li>
-            <img src={mapPinFill} alt="" />
-            <span>Porto Alegre, RS</span>
-          </li>
-          <li>
-            <NavLink to="/checkout" title="Checkout">
-              <img src={cart} alt="" />
-              {counter > 0 && <span>{counter}</span>}
-            </NavLink>
-          </li>
+          <div>
+            <li>
+              <img src={mapPinFill} alt="" />
+              <span>Porto Alegre, RS</span>
+            </li>
+            <li>
+              <NavLink to="/checkout" title="Checkout">
+                <img src={cart} alt="" />
+                {counter > 0 && <span>{counter}</span>}
+              </NavLink>
+            </li>
+          </div>
         </ul>
       </nav>
     </HeaderContainer>
