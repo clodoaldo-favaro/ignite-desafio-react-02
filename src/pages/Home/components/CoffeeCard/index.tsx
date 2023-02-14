@@ -37,8 +37,8 @@ export function CoffeeCard({
   }
 
   function handleAddToCart() {
-    debugger
     onAddToCart({ id, name, price, quantity: coffeeQuantity, imgSrc })
+    setCoffeeQuantity(1)
   }
 
   return (

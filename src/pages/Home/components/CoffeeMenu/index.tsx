@@ -48,7 +48,6 @@ export function CoffeeMenu({ onAddToCart }: CoffeMenuProps) {
   ])
 
   function handleAddToCart(cartItem: CartItem) {
-    debugger
     onAddToCart(cartItem)
   }
 

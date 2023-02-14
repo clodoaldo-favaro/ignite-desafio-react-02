@@ -14,13 +14,11 @@ export interface CartItem {
   imgSrc: string
 }
 
-interface CartProps {
+interface HeaderProps {
   cartItems: CartItem[]
 }
 
-export function Header() {
-  const [cartItems, setCartItems] = useState([])
-
+export function Header({ cartItems }: HeaderProps) {
   const counter = cartItems.length
 
   return (
