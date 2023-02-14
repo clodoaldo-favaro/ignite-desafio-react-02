@@ -4,11 +4,7 @@ import { CoffeeMenu } from './components/CoffeeMenu'
 import { CartItem } from '../../components/Header'
 import { useLayoutContext } from '../../layouts/DefaultLayout'
 
-interface HomeProps {
-  onAddToCart: (item: CartItem) => void
-}
-
-export function Home({ onAddToCart }: HomeProps) {
+export function Home() {
   const [cartItems, setCartItems] = useLayoutContext()
 
   function handleAddToCart(item: CartItem) {
