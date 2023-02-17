@@ -36,7 +36,7 @@ export function Header({ cartItems }: HeaderProps) {
               <span>Porto Alegre, RS</span>
             </li>
             <li>
-              <NavLink to="/checkout" title="Checkout">
+              <NavLink to={counter > 0 ? '/checkout' : '/'} title="Checkout">
                 <img src={cart} alt="" />
                 {counter > 0 && <span>{counter}</span>}
               </NavLink>

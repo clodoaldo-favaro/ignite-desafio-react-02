@@ -27,8 +27,23 @@ export const CheckoutContainer = styled.form`
     margin-bottom: 0.75rem;
   }
 
+  #rua,
+  #complemento,
+  #cidade {
+    flex-grow: 1;
+  }
+
   > div:first-child {
     flex-grow: 1;
+
+    input[type='text'] {
+      background: ${(props) => props.theme.input};
+      color: ${(props) => props.theme.text};
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: 1px solid ${(props) => props.theme.button};
+      position: relative;
+    }
 
     > div {
       > div:first-child {
