@@ -17,7 +17,6 @@ export interface CoffeeProps {
 
 interface CoffeeCardProps {
   coffee: CoffeeProps
-  onAddToCart: (item: CartItem) => void
 }
 
 export function CoffeeCard({

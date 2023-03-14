@@ -5,13 +5,8 @@ import imgExpressoAmericano from '../../../../assets/coffee-menu/expresso-americ
 import imgExpressoCremoso from '../../../../assets/coffee-menu/expresso-cremoso.svg'
 import imgExpressoGelado from '../../../../assets/coffee-menu/expresso-gelado.svg'
 import { useState } from 'react'
-import { CartItem } from '../../../../components/Header'
 
-interface CoffeMenuProps {
-  onAddToCart: (item: CartItem) => void
-}
-
-export function CoffeeMenu({ onAddToCart }: CoffeMenuProps) {
+export function CoffeeMenu() {
   const [coffees, setCoffees] = useState<CoffeeProps[]>([
     {
       id: '1',
@@ -47,22 +42,12 @@ export function CoffeeMenu({ onAddToCart }: CoffeMenuProps) {
     },
   ])
 
-  function handleAddToCart(cartItem: CartItem) {
-    onAddToCart(cartItem)
-  }
-
   return (
     <CoffeeMenuContainer>
       <h2>Nossos cafés</h2>
       <div>
         {coffees.map((coffee) => {
-          return (
-            <CoffeeCard
-              key={coffee.id}
-              coffee={coffee}
-              onAddToCart={handleAddToCart}
-            />
-          )
+          return <CoffeeCard key={coffee.id} coffee={coffee} />
         })}
       </div>
     </CoffeeMenuContainer>
