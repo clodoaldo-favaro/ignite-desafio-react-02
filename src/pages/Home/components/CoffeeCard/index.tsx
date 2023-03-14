@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState, useReducer, Reducer } from 'react'
 import { CoffeeCardContainer } from './styles'
 import { CoffeeTypeTag } from '../CoffeeTypeTag'
-import { CartItem } from '../../../../components/Header'
+import { CartItem } from '../../../../reducers/cart/reducer'
 import { NumericInput } from '../../../../components/NumericInput'
 import CartWhite from '../../../../assets/cart-white.svg'
+import { CartContext } from '../../../../contexts/CartContext'
 
 export interface CoffeeProps {
   id: string
@@ -21,10 +22,10 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({
   coffee: { id, name, description, imgSrc, types, price },
-  onAddToCart,
 }: CoffeeCardProps) {
   const formattedPrice = price.toFixed(2).replace('.', ',')
   const [coffeeQuantity, setCoffeeQuantity] = useState(1)
+  const { addToCart, cartItems } = useContext(CartContext)
 
   function increment() {
     setCoffeeQuantity(coffeeQuantity + 1)
@@ -37,8 +38,17 @@ export function CoffeeCard({
   }
 
   function handleAddToCart() {
-    onAddToCart({ id, name, price, quantity: coffeeQuantity, imgSrc })
-    setCoffeeQuantity(1)
+    const nextId = cartItems.length
+    const newItem: CartItem = {
+      id: nextId,
+      productId: id,
+      name,
+      imgSrc,
+      price,
+      quantity: coffeeQuantity,
+    }
+
+    addToCart(newItem)
   }
 
   return (

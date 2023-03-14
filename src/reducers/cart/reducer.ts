@@ -1,59 +1,60 @@
 import { produce } from 'immer'
-
 import { ActionTypes } from './actions'
 
 export interface CartItem {
-  id: string
+  id: number
   productId: string
   price: number
   quantity: number
-  description: string
+  name: string
+  imgSrc: string
 }
 
-interface CartState {
-  items: CartItem[]
+export interface CartState {
+  cartItems: CartItem[]
 }
 
 export function cartReducer(state: CartState, action: any) {
   switch (action.type) {
-    case ActionTypes.ADD_NEW_CART_ITEM:
-      return produce(state, (draft) => {
-        draft.items.push(action.payload.newCartItem)
-      })
-
-    case ActionTypes.REMOVE_CART_ITEM: {
-      const itemIdToRemove = action.payload.itemId
-
-      const itemToRemoveIndex = state.items.findIndex(
-        (item) => item.id === itemIdToRemove,
+    case ActionTypes.ADD_TO_CART: {
+      debugger
+      const cartItemIndex = state.cartItems.findIndex(
+        (cartItem) => cartItem.productId === action.payload.newItem.productId,
       )
 
-      if (itemToRemoveIndex < 0) {
-        return state
+      if (cartItemIndex < 0) {
+        return produce(state, (draft) => {
+          draft.cartItems.push(action.payload.newItem)
+        })
       }
 
       return produce(state, (draft) => {
-        draft.items.splice(itemToRemoveIndex, 1)
+        draft.cartItems[cartItemIndex].quantity +=
+          action.payload.newItem.quantity
       })
     }
 
-    case ActionTypes.UPDATE_CART_ITEM: {
-      const itemIdToUpdate = action.payload.itemId
-
-      const itemToUpdateIndex = state.items.findIndex(
-        (item) => item.id === itemIdToUpdate,
-      )
-
-      if (itemToUpdateIndex < 0) {
-        return state
-      }
-
+    case ActionTypes.REMOVE_FROM_CART: {
+      const itemToBeRemovedId = action.payload.itemId
       return produce(state, (draft) => {
-        draft.items[itemToUpdateIndex].quantity = action.payload.quantity
+        draft.cartItems.filter((cartItem) => cartItem.id !== itemToBeRemovedId)
       })
     }
 
-    default:
-      return state
+    case ActionTypes.UPDATE_CART: {
+      return produce(state, (draft) => {
+        draft.cartItems.map((cartItem) => {
+          if (cartItem.id === action.payload.itemId) {
+            return { ...cartItem, quantity: action.payload.quantity }
+          } else {
+            return cartItem
+          }
+        })
+      })
+    }
+
+    default: {
+      throw new Error('Unknown action:' + action.type)
+    }
   }
 }

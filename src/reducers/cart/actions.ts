@@ -1,32 +1,37 @@
 import { CartItem } from './reducer'
 
+export type CartAction =
+  | { type: 'add'; cartItem: CartItem }
+  | { type: 'remove'; itemId: string }
+  | { type: 'update'; itemId: string; quantity: number }
+
 export enum ActionTypes {
-  ADD_NEW_CART_ITEM = 'ADD_NEW_CART_ITEM',
-  REMOVE_CART_ITEM = 'REMOVE_CART_ITEM',
-  UPDATE_CART_ITEM = 'UPDATE_CART_ITEM',
+  ADD_TO_CART = 'ADD_TO_CART',
+  REMOVE_FROM_CART = 'REMOVE_FROM_CART',
+  UPDATE_CART = 'UPDATE_CART',
 }
 
-export function addNewCartItemAction(newCartItem: CartItem) {
+export function addToCartAction(newItem: CartItem) {
   return {
-    type: ActionTypes.ADD_NEW_CART_ITEM,
+    type: ActionTypes.ADD_TO_CART,
     payload: {
-      newCartItem,
+      newItem,
     },
   }
 }
 
-export function removeCartItemAction(itemId: string) {
+export function removeFromCartAction(itemId: string) {
   return {
-    type: ActionTypes.REMOVE_CART_ITEM,
+    type: ActionTypes.REMOVE_FROM_CART,
     payload: {
       itemId,
     },
   }
 }
 
-export function updateCartItemAction(itemId: string, quantity: number) {
+export function updateCartAction(itemId: string, quantity: number) {
   return {
-    type: ActionTypes.UPDATE_CART_ITEM,
+    type: ActionTypes.UPDATE_CART,
     payload: {
       itemId,
       quantity,
