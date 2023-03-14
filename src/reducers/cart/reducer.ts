@@ -17,7 +17,6 @@ export interface CartState {
 export function cartReducer(state: CartState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_TO_CART: {
-      debugger
       const cartItemIndex = state.cartItems.findIndex(
         (cartItem) => cartItem.productId === action.payload.newItem.productId,
       )
