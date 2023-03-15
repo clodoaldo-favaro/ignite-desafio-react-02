@@ -40,6 +40,7 @@ export const CoffeeCardContainer = styled.div`
   p {
     color: ${(props) => props.theme.label};
     text-align: center;
+    font-size: ${(props) => props.theme['text-s']};
   }
 
   footer {

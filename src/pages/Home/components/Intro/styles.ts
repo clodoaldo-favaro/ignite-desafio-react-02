@@ -17,6 +17,12 @@ export const IntroContainer = styled.section`
   > div > img {
     max-width: 100%;
   }
+
+  @media (max-width: 768px) {
+    & .right-column {
+      display: none;
+    }
+  }
 `
 
 export const FeaturesContainer = styled.div`
@@ -25,6 +31,10 @@ export const FeaturesContainer = styled.div`
   column-gap: 2.5rem;
   row-gap: 1.25rem;
   margin-top: 4.125rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Feature = styled.div`

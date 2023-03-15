@@ -44,7 +44,7 @@ export function Intro() {
           </Feature>
         </FeaturesContainer>
       </div>
-      <div>
+      <div className="right-column">
         <img src={coffeePic} alt="" />
       </div>
     </IntroContainer>

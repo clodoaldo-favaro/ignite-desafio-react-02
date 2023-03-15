@@ -4,6 +4,12 @@ import imgExpressoTradicional from '../../../../assets/coffee-menu/expresso-trad
 import imgExpressoAmericano from '../../../../assets/coffee-menu/expresso-americano.svg'
 import imgExpressoCremoso from '../../../../assets/coffee-menu/expresso-cremoso.svg'
 import imgExpressoGelado from '../../../../assets/coffee-menu/expresso-gelado.svg'
+import imgCafeComLeite from '../../../../assets/coffee-menu/leite.svg'
+import imgLatte from '../../../../assets/coffee-menu/latte.svg'
+import imgCapuccino from '../../../../assets/coffee-menu/capuccino.svg'
+import imgMacchiato from '../../../../assets/coffee-menu/macchiato.svg'
+import imgMocaccino from '../../../../assets/coffee-menu/mocaccino.svg'
+import imgChocolateQuente from '../../../../assets/coffee-menu/chocolate-quente.svg'
 import { useState } from 'react'
 
 export function CoffeeMenu() {
@@ -38,6 +44,67 @@ export function CoffeeMenu() {
       description: 'Bebida preparada com café expresso e cubos de gelo',
       imgSrc: imgExpressoGelado,
       types: ['TRADICIONAL', 'GELADO'],
+      price: 9.9,
+    },
+    {
+      id: '5',
+      name: 'Café com Leite',
+      description: 'Meio a meio de expresso tradicional com leite vaporizado',
+      imgSrc: imgCafeComLeite,
+      types: ['TRADICIONAL', 'COM LEITE'],
+      price: 9.9,
+    },
+    {
+      id: '6',
+      name: 'Latte',
+      description:
+        'Uma dose de café expresso com o dobro de leite e espuma cremosa',
+      imgSrc: imgLatte,
+      types: ['TRADICIONAL', 'COM LEITE'],
+      price: 9.9,
+    },
+    {
+      id: '7',
+      name: 'Capuccino',
+      description:
+        'Bebida com canela feita de doses iguais de café, leite e espuma',
+      imgSrc: imgCapuccino,
+      types: ['TRADICIONAL', 'COM LEITE'],
+      price: 9.9,
+    },
+    {
+      id: '8',
+      name: 'Macchiato',
+      description:
+        'Café expresso misturado com um pouco de leite quente e espuma',
+      imgSrc: imgMacchiato,
+      types: ['TRADICIONAL', 'COM LEITE'],
+      price: 9.9,
+    },
+    {
+      id: '9',
+      name: 'Mocaccino',
+      description: 'Café expresso com calda de chocolate, pouco leite e espuma',
+      imgSrc: imgMocaccino,
+      types: ['TRADICIONAL', 'COM LEITE'],
+      price: 9.9,
+    },
+    {
+      id: '10',
+      name: 'Chocolate quente',
+      description:
+        'Bebida feita com chocolate dissolvido no leite quente e café',
+      imgSrc: imgChocolateQuente,
+      types: ['ESPECIAL', 'COM LEITE'],
+      price: 9.9,
+    },
+    {
+      id: '11',
+      name: 'Latte',
+      description:
+        'Uma dose de café expresso com o dobro de leite e espuma cremosa',
+      imgSrc: imgLatte,
+      types: ['TRADICIONAL', 'COM LEITE'],
       price: 9.9,
     },
   ])
