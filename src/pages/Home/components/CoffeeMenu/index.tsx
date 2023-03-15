@@ -10,6 +10,10 @@ import imgCapuccino from '../../../../assets/coffee-menu/capuccino.svg'
 import imgMacchiato from '../../../../assets/coffee-menu/macchiato.svg'
 import imgMocaccino from '../../../../assets/coffee-menu/mocaccino.svg'
 import imgChocolateQuente from '../../../../assets/coffee-menu/chocolate-quente.svg'
+import imgCubano from '../../../../assets/coffee-menu/cubano.svg'
+import imgHavaiano from '../../../../assets/coffee-menu/havaiano.svg'
+import imgArabe from '../../../../assets/coffee-menu/arabe.svg'
+import imgIrlandes from '../../../../assets/coffee-menu/irlandes.svg'
 import { useState } from 'react'
 
 export function CoffeeMenu() {
@@ -100,11 +104,35 @@ export function CoffeeMenu() {
     },
     {
       id: '11',
-      name: 'Latte',
+      name: 'Cubano',
       description:
-        'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-      imgSrc: imgLatte,
-      types: ['TRADICIONAL', 'COM LEITE'],
+        'Drink gelado de café expresso com rum, creme de leite e hortelã',
+      imgSrc: imgCubano,
+      types: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
+      price: 9.9,
+    },
+    {
+      id: '12',
+      name: 'Havaiano',
+      description: 'Bebida adocicada preparada com café e leite de coco',
+      imgSrc: imgHavaiano,
+      types: ['ESPECIAL'],
+      price: 9.9,
+    },
+    {
+      id: '13',
+      name: 'Árabe',
+      description: 'Bebida preparada com grãos de café árabe e especiarias',
+      imgSrc: imgArabe,
+      types: ['ESPECIAL'],
+      price: 9.9,
+    },
+    {
+      id: '14',
+      name: 'Irlandês',
+      description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
+      imgSrc: imgIrlandes,
+      types: ['ESPECIAL', 'ALCOÓLICO'],
       price: 9.9,
     },
   ])
