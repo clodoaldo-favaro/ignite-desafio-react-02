@@ -1,16 +1,10 @@
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartContext'
 import { CheckoutContainer } from './styles'
 import { MapPinLine, CurrencyDollar } from 'phosphor-react'
-import { useLocation } from 'react-router-dom'
-import { useState } from 'react'
-import { CartItem } from '../../components/Header'
 
 export function Checkout() {
-  const location = useLocation()
-  const { state } = location.cartItems
-  const { cartItems, setCartItems } = useState<CartItem[]>([])
-  console.log('entering checkout')
-  console.log(state)
-  console.log(cartItems)
+  const { cartItems } = useContext(CartContext)
 
   return (
     <CheckoutContainer>

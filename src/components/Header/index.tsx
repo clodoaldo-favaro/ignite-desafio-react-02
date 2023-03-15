@@ -4,16 +4,8 @@ import mapPinFill from '../../assets/map-pin-fill.svg'
 import cart from '../../assets/cart.svg'
 
 import { NavLink } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
-
-export interface CartItem {
-  id: string
-  name: string
-  price: number
-  quantity: number
-  imgSrc: string
-}
 
 export function Header() {
   const { cartItems } = useContext(CartContext)
