@@ -1,9 +1,9 @@
-import { CartItem } from './reducer'
+import { CreateCartItemData } from './reducer'
 
 export type CartAction =
-  | { type: 'add'; cartItem: CartItem }
-  | { type: 'remove'; itemId: string }
-  | { type: 'update'; itemId: string; quantity: number }
+  | { type: 'add'; cartItem: CreateCartItemData }
+  | { type: 'remove'; itemId: number }
+  | { type: 'update'; itemId: number; quantity: number }
 
 export enum ActionTypes {
   ADD_TO_CART = 'ADD_TO_CART',
@@ -11,7 +11,7 @@ export enum ActionTypes {
   UPDATE_CART = 'UPDATE_CART',
 }
 
-export function addToCartAction(newItem: CartItem) {
+export function addToCartAction(newItem: CreateCartItemData) {
   return {
     type: ActionTypes.ADD_TO_CART,
     payload: {
@@ -20,7 +20,7 @@ export function addToCartAction(newItem: CartItem) {
   }
 }
 
-export function removeFromCartAction(itemId: string) {
+export function removeFromCartAction(itemId: number) {
   return {
     type: ActionTypes.REMOVE_FROM_CART,
     payload: {
@@ -29,7 +29,7 @@ export function removeFromCartAction(itemId: string) {
   }
 }
 
-export function updateCartAction(itemId: string, quantity: number) {
+export function updateCartAction(itemId: number, quantity: number) {
   return {
     type: ActionTypes.UPDATE_CART,
     payload: {

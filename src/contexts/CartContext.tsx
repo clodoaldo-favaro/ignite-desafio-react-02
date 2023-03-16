@@ -6,13 +6,18 @@ import {
   updateCartAction,
 } from '../reducers/cart/actions'
 
-import { CartItem, cartReducer } from '../reducers/cart/reducer'
+import {
+  CartItem,
+  cartReducer,
+  CreateCartItemData,
+} from '../reducers/cart/reducer'
 
 interface CartContextType {
   cartItems: CartItem[]
-  addToCart: (newItem: CartItem) => void
-  removeFromCart: (itemId: string) => void
-  updateCartItem: (itemId: string, quantity: number) => void
+  nextId: number
+  addToCart: (newItem: CreateCartItemData) => void
+  removeFromCart: (itemId: number) => void
+  updateCartItem: (itemId: number, quantity: number) => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -22,24 +27,28 @@ interface CartContextProviderProps {
 }
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartState, dispatch] = useReducer(cartReducer, { cartItems: [] })
-  const { cartItems } = cartState
+  const [cartState, dispatch] = useReducer(cartReducer, {
+    cartItems: [],
+    nextId: 0,
+  })
+  const { cartItems, nextId } = cartState
 
-  function addToCart(newItem: CartItem) {
+  function addToCart(newItem: CreateCartItemData) {
     dispatch(addToCartAction(newItem))
   }
 
-  function removeFromCart(itemId: string) {
+  function removeFromCart(itemId: number) {
     dispatch(removeFromCartAction(itemId))
   }
 
-  function updateCartItem(itemId: string, quantity: number) {
+  function updateCartItem(itemId: number, quantity: number) {
     dispatch(updateCartAction(itemId, quantity))
   }
 
   return (
     <CartContext.Provider
       value={{
+        nextId,
         cartItems,
         addToCart,
         removeFromCart,

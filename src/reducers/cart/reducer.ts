@@ -10,8 +10,17 @@ export interface CartItem {
   imgSrc: string
 }
 
+export interface CreateCartItemData {
+  productId: string
+  price: number
+  quantity: number
+  name: string
+  imgSrc: string
+}
+
 export interface CartState {
   cartItems: CartItem[]
+  nextId: number
 }
 
 export function cartReducer(state: CartState, action: any) {
@@ -24,6 +33,7 @@ export function cartReducer(state: CartState, action: any) {
       if (cartItemIndex < 0) {
         return produce(state, (draft) => {
           draft.cartItems.push(action.payload.newItem)
+          draft.nextId++
         })
       }
 

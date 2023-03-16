@@ -1,7 +1,7 @@
 import { useContext, useState, useReducer, Reducer } from 'react'
 import { CoffeeCardContainer } from './styles'
 import { CoffeeTypeTag } from '../CoffeeTypeTag'
-import { CartItem } from '../../../../reducers/cart/reducer'
+import { CartItem, CreateCartItemData } from '../../../../reducers/cart/reducer'
 import { NumericInput } from '../../../../components/NumericInput'
 import CartWhite from '../../../../assets/cart-white.svg'
 import { CartContext } from '../../../../contexts/CartContext'
@@ -37,9 +37,7 @@ export function CoffeeCard({
   }
 
   function handleAddToCart() {
-    const nextId = cartItems.length
-    const newItem: CartItem = {
-      id: nextId,
+    const newItem: CreateCartItemData = {
       productId: id,
       name,
       imgSrc,
