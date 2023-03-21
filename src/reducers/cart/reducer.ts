@@ -46,7 +46,9 @@ export function cartReducer(state: CartState, action: any) {
     case ActionTypes.REMOVE_FROM_CART: {
       const itemToBeRemovedId = action.payload.itemId
       return produce(state, (draft) => {
-        draft.cartItems.filter((cartItem) => cartItem.id !== itemToBeRemovedId)
+        draft.cartItems = draft.cartItems.filter(
+          (cartItem) => cartItem.id !== itemToBeRemovedId,
+        )
       })
     }
 
