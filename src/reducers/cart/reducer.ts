@@ -32,7 +32,7 @@ export function cartReducer(state: CartState, action: any) {
 
       if (cartItemIndex < 0) {
         return produce(state, (draft) => {
-          draft.cartItems.push(action.payload.newItem)
+          draft.cartItems.push({ ...action.payload.newItem, id: draft.nextId })
           draft.nextId++
         })
       }
@@ -52,7 +52,8 @@ export function cartReducer(state: CartState, action: any) {
 
     case ActionTypes.UPDATE_CART: {
       return produce(state, (draft) => {
-        draft.cartItems.map((cartItem) => {
+        debugger
+        draft.cartItems = draft.cartItems.map((cartItem) => {
           if (cartItem.id === action.payload.itemId) {
             return { ...cartItem, quantity: action.payload.quantity }
           } else {

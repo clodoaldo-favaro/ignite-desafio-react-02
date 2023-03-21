@@ -14,11 +14,17 @@ export function CheckoutCartItem({
   const total = (price * quantity).toFixed(2).replace('.', ',')
   const { updateCartItem, removeFromCart } = useContext(CartContext)
 
-  function handleUpdateItemQuantity() {
-    if (quantity === 0) {
+  function handleIncrement() {
+    updateCartItem(id, quantity + 1)
+  }
+
+  function handleDecrement() {
+    debugger
+    const newQuantity = quantity - 1
+    if (newQuantity === 0) {
       removeFromCart(id)
     } else {
-      updateCartItem(id, quantity)
+      updateCartItem(id, newQuantity)
     }
   }
 
@@ -35,8 +41,8 @@ export function CheckoutCartItem({
         <div>
           <NumericInput
             quantity={quantity}
-            onIncrement={handleUpdateItemQuantity}
-            onDecrement={handleUpdateItemQuantity}
+            onIncrement={handleIncrement}
+            onDecrement={handleDecrement}
           ></NumericInput>
         </div>
       </div>
