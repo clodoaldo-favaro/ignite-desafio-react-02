@@ -3,9 +3,16 @@ import { CartContext } from '../../contexts/CartContext'
 import { CheckoutContainer } from './styles'
 import { MapPinLine, CurrencyDollar } from 'phosphor-react'
 import { CheckoutCartItem } from './components/CheckoutCartItem'
+import { CartTotal } from './components/CartTotal'
 
 export function Checkout() {
   const { cartItems } = useContext(CartContext)
+
+  const DELIVERY_COST = 3
+
+  const itemsTotal = cartItems.reduce((totalSum, currentItem) => {
+    return totalSum + currentItem.price * currentItem.quantity
+  }, 0)
 
   return (
     <CheckoutContainer>
@@ -75,6 +82,14 @@ export function Checkout() {
               )
             })}
           </ul>
+          {cartItems.length ? (
+            <CartTotal
+              itemsTotal={itemsTotal}
+              deliveryCost={DELIVERY_COST}
+            ></CartTotal>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </CheckoutContainer>
