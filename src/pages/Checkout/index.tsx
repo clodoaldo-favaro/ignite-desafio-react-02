@@ -1,18 +1,30 @@
-import { useContext } from 'react'
+import { useContext, MouseEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../contexts/CartContext'
 import { CheckoutContainer } from './styles'
 import { MapPinLine, CurrencyDollar } from 'phosphor-react'
 import { CheckoutCartItem } from './components/CheckoutCartItem'
 import { CartTotal } from './components/CartTotal'
+import { BaseButtonContainerFullWidth } from './components/CartTotal/BaseButton/styles'
+import { useTheme } from 'styled-components'
 
 export function Checkout() {
   const { cartItems } = useContext(CartContext)
+  const navigate = useNavigate()
+  const theme = useTheme()
+  const fontSizeConfirmButton = theme['text-s']
+  const backgroundColorConfirmButton = theme.yellow
 
   const DELIVERY_COST = 3
 
   const itemsTotal = cartItems.reduce((totalSum, currentItem) => {
     return totalSum + currentItem.price * currentItem.quantity
   }, 0)
+
+  function handleSubmit(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault()
+    navigate('/')
+  }
 
   return (
     <CheckoutContainer>
@@ -87,6 +99,20 @@ export function Checkout() {
               itemsTotal={itemsTotal}
               deliveryCost={DELIVERY_COST}
             ></CartTotal>
+          ) : (
+            ''
+          )}
+          {cartItems.length ? (
+            <BaseButtonContainerFullWidth
+              onClick={handleSubmit}
+              backgroundColor={backgroundColorConfirmButton}
+              color="#FFF"
+              type="submit"
+              fontWeight="bold"
+              fontSize={fontSizeConfirmButton}
+            >
+              CONFIRMAR PEDIDO
+            </BaseButtonContainerFullWidth>
           ) : (
             ''
           )}

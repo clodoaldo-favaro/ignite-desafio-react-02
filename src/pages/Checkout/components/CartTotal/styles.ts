@@ -4,6 +4,7 @@ export const CartTotalContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.84375rem;
+  margin: 2.4rem 0;
 
   > div {
     display: flex;

@@ -3,6 +3,10 @@ import { CartItem } from '../../../../reducers/cart/reducer'
 import { NumericInput } from '../../../../components/NumericInput'
 import { CartContext } from '../../../../contexts/CartContext'
 import { useContext } from 'react'
+import {
+  BaseButtonContainerNoShadow,
+  TrashPurple,
+} from '../CartTotal/BaseButton/styles'
 
 interface CartItemProps {
   cartItem: CartItem
@@ -28,6 +32,10 @@ export function CheckoutCartItem({
     }
   }
 
+  function handleOnClickRemove() {
+    removeFromCart(id)
+  }
+
   return (
     <CartItemContainer>
       <div>
@@ -44,6 +52,13 @@ export function CheckoutCartItem({
             onIncrement={handleIncrement}
             onDecrement={handleDecrement}
           ></NumericInput>
+          <BaseButtonContainerNoShadow
+            type="button"
+            onClick={handleOnClickRemove}
+          >
+            <TrashPurple size={24}></TrashPurple>
+            <span>REMOVER</span>
+          </BaseButtonContainerNoShadow>
         </div>
       </div>
     </CartItemContainer>
