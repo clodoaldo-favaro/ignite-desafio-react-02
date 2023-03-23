@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { CreditCard, Bank, Money } from 'phosphor-react'
 
 export const PaymentMethodCardCardDiv = styled.div`
   display: flex;
@@ -9,7 +10,8 @@ export const PaymentMethodCardCardDiv = styled.div`
 `
 
 export const PaymentMethodCardContainer = styled.label`
-  flex-grow: 1;
+  flex: 1 1 0;
+  width: 0;
 
   > div {
     display: flex;
@@ -40,4 +42,14 @@ export const PaymentMethodCardContainer = styled.label`
     background-color: ${(props) => props.theme['purple-light']};
     border: 1px solid ${(props) => props.theme.purple};
   }
+`
+
+export const CardIconPurple = styled(CreditCard)`
+  color: ${(props) => props.theme.purple};
+`
+export const BankIconPurple = styled(Bank)`
+  color: ${(props) => props.theme.purple};
+`
+export const MoneyIconPurple = styled(Money)`
+  color: ${(props) => props.theme.purple};
 `

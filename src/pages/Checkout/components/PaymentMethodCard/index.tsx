@@ -1,4 +1,9 @@
-import { PaymentMethodCardContainer } from './style'
+import {
+  PaymentMethodCardContainer,
+  MoneyIconPurple,
+  CardIconPurple,
+  BankIconPurple,
+} from './style'
 
 interface PaymentMethodCardProps {
   inputId: string
@@ -23,7 +28,16 @@ export function PaymentMethodCard({
         id={inputId}
         value={inputValue}
       />
+
       <div>
+        {inputValue === 'credit-card' ? (
+          <CardIconPurple size={24} />
+        ) : inputValue === 'debit-card' ? (
+          <BankIconPurple size={24} />
+        ) : (
+          <MoneyIconPurple size={24} />
+        )}
+
         <span>{paymentMethodsNames[inputValue]}</span>
       </div>
     </PaymentMethodCardContainer>
