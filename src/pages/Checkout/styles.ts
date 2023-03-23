@@ -6,6 +6,16 @@ export const CheckoutContainer = styled.form`
   gap: 2rem;
   margin-top: 2.5rem;
 
+  .payment-methods-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    flex-direction: row !important;
+    margin-top: 2rem;
+  }
+
   .input-row {
     display: flex;
     gap: 0.75rem;

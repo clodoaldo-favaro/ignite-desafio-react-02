@@ -7,6 +7,8 @@ import { CheckoutCartItem } from './components/CheckoutCartItem'
 import { CartTotal } from './components/CartTotal'
 import { BaseButtonContainerFullWidth } from './components/CartTotal/BaseButton/styles'
 import { useTheme } from 'styled-components'
+import { PaymentMethodCard } from './components/PaymentMethodCard'
+import { PaymentMethodCardCardDiv } from './components/PaymentMethodCard/style'
 
 export function Checkout() {
   const { cartItems } = useContext(CartContext)
@@ -71,13 +73,19 @@ export function Checkout() {
               </p>
             </div>
           </div>
-          <div className="input-row">
-            <div className="card">
-              <input id="cartao_debito" type="radio" name="payment" />
-            </div>
-            <div className="card">
-              <input id="dinheiro" type="radio" name="payment" />
-            </div>
+          <div className="payment-methods-container">
+            <PaymentMethodCard
+              inputId="credit-card"
+              inputValue="credit-card"
+            ></PaymentMethodCard>
+            <PaymentMethodCard
+              inputId="debit-card"
+              inputValue="debit-card"
+            ></PaymentMethodCard>
+            <PaymentMethodCard
+              inputId="cash"
+              inputValue="cash"
+            ></PaymentMethodCard>
           </div>
         </div>
       </div>
