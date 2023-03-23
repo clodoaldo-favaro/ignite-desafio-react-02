@@ -8,7 +8,6 @@ import { CartTotal } from './components/CartTotal'
 import { BaseButtonContainerFullWidth } from './components/CartTotal/BaseButton/styles'
 import { useTheme } from 'styled-components'
 import { PaymentMethodCard } from './components/PaymentMethodCard'
-import { PaymentMethodCardCardDiv } from './components/PaymentMethodCard/style'
 
 export function Checkout() {
   const { cartItems } = useContext(CartContext)

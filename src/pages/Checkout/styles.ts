@@ -104,5 +104,9 @@ export const CheckoutContainer = styled.form`
     div:last-child {
       width: 100%;
     }
+
+    .payment-methods-container {
+      flex-direction: column !important;
+    }
   }
 `

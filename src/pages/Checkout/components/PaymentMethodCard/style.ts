@@ -1,14 +1,6 @@
 import styled from 'styled-components'
 import { CreditCard, Bank, Money } from 'phosphor-react'
 
-export const PaymentMethodCardCardDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-`
-
 export const PaymentMethodCardContainer = styled.label`
   flex: 1 1 0;
   width: 0;
@@ -41,6 +33,10 @@ export const PaymentMethodCardContainer = styled.label`
   input[type='radio']:checked + div {
     background-color: ${(props) => props.theme['purple-light']};
     border: 1px solid ${(props) => props.theme.purple};
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `
 
