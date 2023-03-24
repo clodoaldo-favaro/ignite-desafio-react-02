@@ -24,7 +24,7 @@ export function Checkout() {
 
   function handleSubmit(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault()
-    navigate('/')
+    navigate('/success')
   }
 
   return (
