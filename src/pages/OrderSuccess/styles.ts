@@ -23,10 +23,6 @@ export const OrderSuccessContainer = styled.div`
   }
 
   .deliveryInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2rem;
     margin-top: 2.5rem;
     width: 130%;
     max-width: 526px;
@@ -49,6 +45,43 @@ export const OrderSuccessContainer = styled.div`
       position: absolute;
       left: 1px;
       top: 1px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2rem;
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .icon-container {
+          width: 2rem;
+          height: 2rem;
+          padding: 0.5rem;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .purple-bg {
+        background-color: ${(props) => props.theme.purple};
+      }
+
+      .yellow-bg {
+        background-color: ${(props) => props.theme.yellow};
+      }
+
+      .yellow-dark-bg {
+        background-color: ${(props) => props.theme['yellow-dark']};
+      }
+
+      .bold {
+        font-weight: bold;
+      }
     }
   }
 `
