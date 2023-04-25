@@ -38,7 +38,7 @@ export function Checkout() {
   function handleCreateNewOrder(data: NewOrderFormData) {
     console.log(data)
     reset()
-    navigate('/order-success')
+    navigate('/success')
   }
 
   return (
