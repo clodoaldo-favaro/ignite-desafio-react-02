@@ -55,6 +55,26 @@ export const FormContainer = styled.div`
       position: relative;
     }
 
+    input[type='text']::placeholder {
+      color: ${(props) => props.theme.label};
+    }
+
+    .optional-input-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    span.optional {
+      font-style: italic;
+      text-align: right;
+      display: block;
+      position: absolute;
+      right: 0.75rem;
+      color: ${(props) => props.theme.label};
+    }
+
     > div {
       > div:first-child {
         display: flex;

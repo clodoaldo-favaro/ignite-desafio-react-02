@@ -58,13 +58,15 @@ export function NewOrderForm() {
                 placeholder="Número"
                 {...register('numero')}
               />
-              <input
-                id="complemento"
-                type="text"
-                placeholder="Complemento"
-                className="optional"
-                {...register('complemento')}
-              />
+              <div className="optional-input-wrapper">
+                <input
+                  id="complemento"
+                  type="text"
+                  placeholder="Complemento"
+                  {...register('complemento')}
+                />
+                <span className="optional">Opcional</span>
+              </div>
             </div>
             <div className="input-row">
               <input
