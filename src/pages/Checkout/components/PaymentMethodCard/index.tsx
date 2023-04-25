@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   PaymentMethodCardContainer,
   MoneyIconPurple,
@@ -5,11 +7,14 @@ import {
   BankIconPurple,
 } from './style'
 
-interface PaymentMethodCardProps {
+interface PaymentMethodCardProps extends React.HTMLProps<HTMLInputElement> {
   paymentMethod: 'credit-card' | 'debit-card' | 'cash'
 }
 
-export function PaymentMethodCard({ paymentMethod }: PaymentMethodCardProps) {
+const PaymentMethodCard = React.forwardRef<
+  HTMLInputElement,
+  PaymentMethodCardProps
+>(({ paymentMethod, ...inputProps }, ref) => {
   const paymentMethodsNames = {
     'credit-card': 'CARTÃO DE CRÉDITO',
     'debit-card': 'CARTÃO DE DÉBITO',
@@ -18,7 +23,12 @@ export function PaymentMethodCard({ paymentMethod }: PaymentMethodCardProps) {
 
   return (
     <PaymentMethodCardContainer>
-      <input type="radio" />
+      <input
+        type="radio"
+        ref={ref}
+        id={inputProps.id}
+        value={inputProps.value}
+      />
 
       <div>
         {paymentMethod === 'credit-card' ? (
@@ -33,4 +43,8 @@ export function PaymentMethodCard({ paymentMethod }: PaymentMethodCardProps) {
       </div>
     </PaymentMethodCardContainer>
   )
-}
+})
+
+PaymentMethodCard.displayName = 'PaymentMethodCard'
+
+export { PaymentMethodCard }

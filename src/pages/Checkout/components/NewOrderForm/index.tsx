@@ -101,6 +101,7 @@ export function NewOrderForm() {
               {...register('paymentMethod')}
             ></PaymentMethodCard>
             <PaymentMethodCard
+              id="debit-card"
               value="debit-card"
               paymentMethod="debit-card"
               {...register('paymentMethod')}
