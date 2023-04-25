@@ -22,12 +22,7 @@ export function PaymentMethodCard({
 
   return (
     <PaymentMethodCardContainer>
-      <input
-        type="radio"
-        name="payment-method"
-        id={inputId}
-        value={inputValue}
-      />
+      <input type="radio" id={inputId} value={inputValue} />
 
       <div>
         {inputValue === 'credit-card' ? (
