@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { CheckoutContainer } from './styles'
 import * as zod from 'zod'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -43,12 +42,12 @@ export function Checkout() {
   }
 
   return (
-    <CheckoutContainer>
+    <div>
       <form onSubmit={handleSubmit(handleCreateNewOrder)} action="">
         <FormProvider {...newOrderForm}>
           <NewOrderForm />
         </FormProvider>
       </form>
-    </CheckoutContainer>
+    </div>
   )
 }
