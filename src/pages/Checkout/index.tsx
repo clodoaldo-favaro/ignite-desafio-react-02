@@ -1,13 +1,5 @@
-import { useContext, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from '../../contexts/CartContext'
 import { CheckoutContainer } from './styles'
-import { MapPinLine, CurrencyDollar } from 'phosphor-react'
-import { CheckoutCartItem } from './components/CheckoutCartItem'
-import { CartTotal } from './components/CartTotal'
-import { BaseButtonContainerFullWidth } from './components/CartTotal/BaseButton/styles'
-import { useTheme } from 'styled-components'
-import { PaymentMethodCard } from './components/PaymentMethodCard'
 import * as zod from 'zod'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -27,17 +19,7 @@ const newOrderFormValidationSchema = zod.object({
 type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
 
 export function Checkout() {
-  const { cartItems } = useContext(CartContext)
   const navigate = useNavigate()
-  const theme = useTheme()
-  const fontSizeConfirmButton = theme['text-s']
-  const backgroundColorConfirmButton = theme.yellow
-
-  const DELIVERY_COST = 3
-
-  const itemsTotal = cartItems.reduce((totalSum, currentItem) => {
-    return totalSum + currentItem.price * currentItem.quantity
-  }, 0)
 
   const newOrderForm = useForm<NewOrderFormData>({
     resolver: zodResolver(newOrderFormValidationSchema),

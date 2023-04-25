@@ -28,6 +28,7 @@ const PaymentMethodCard = React.forwardRef<
         ref={ref}
         id={inputProps.id}
         value={inputProps.value}
+        {...inputProps}
       />
 
       <div>
