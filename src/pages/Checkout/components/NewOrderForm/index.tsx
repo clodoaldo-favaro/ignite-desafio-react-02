@@ -97,17 +97,17 @@ export function NewOrderForm() {
             <PaymentMethodCard
               inputId="credit-card"
               inputValue="credit-card"
-              {...register('payment-method')}
+              {...register('paymentMethod')}
             ></PaymentMethodCard>
             <PaymentMethodCard
               inputId="debit-card"
               inputValue="debit-card"
-              {...register('payment-method')}
+              {...register('paymentMethod')}
             ></PaymentMethodCard>
             <PaymentMethodCard
               inputId="cash"
               inputValue="cash"
-              {...register('payment-method')}
+              {...register('paymentMethod')}
             ></PaymentMethodCard>
           </div>
         </div>
