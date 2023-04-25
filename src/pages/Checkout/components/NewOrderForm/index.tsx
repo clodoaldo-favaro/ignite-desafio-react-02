@@ -95,18 +95,20 @@ export function NewOrderForm() {
           </div>
           <div className="payment-methods-container">
             <PaymentMethodCard
-              inputId="credit-card"
-              inputValue="credit-card"
+              id="credit-card"
+              value="credit-card"
+              paymentMethod="credit-card"
               {...register('paymentMethod')}
             ></PaymentMethodCard>
             <PaymentMethodCard
-              inputId="debit-card"
-              inputValue="debit-card"
+              value="debit-card"
+              paymentMethod="debit-card"
               {...register('paymentMethod')}
             ></PaymentMethodCard>
             <PaymentMethodCard
-              inputId="cash"
-              inputValue="cash"
+              id="cash"
+              value="cash"
+              paymentMethod="cash"
               {...register('paymentMethod')}
             ></PaymentMethodCard>
           </div>

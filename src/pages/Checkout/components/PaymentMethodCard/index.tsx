@@ -6,14 +6,10 @@ import {
 } from './style'
 
 interface PaymentMethodCardProps {
-  inputId: string
-  inputValue: 'credit-card' | 'debit-card' | 'cash'
+  paymentMethod: 'credit-card' | 'debit-card' | 'cash'
 }
 
-export function PaymentMethodCard({
-  inputId,
-  inputValue,
-}: PaymentMethodCardProps) {
+export function PaymentMethodCard({ paymentMethod }: PaymentMethodCardProps) {
   const paymentMethodsNames = {
     'credit-card': 'CARTÃO DE CRÉDITO',
     'debit-card': 'CARTÃO DE DÉBITO',
@@ -22,18 +18,18 @@ export function PaymentMethodCard({
 
   return (
     <PaymentMethodCardContainer>
-      <input type="radio" id={inputId} value={inputValue} />
+      <input type="radio" />
 
       <div>
-        {inputValue === 'credit-card' ? (
+        {paymentMethod === 'credit-card' ? (
           <CardIconPurple size={24} />
-        ) : inputValue === 'debit-card' ? (
+        ) : paymentMethod === 'debit-card' ? (
           <BankIconPurple size={24} />
         ) : (
           <MoneyIconPurple size={24} />
         )}
 
-        <span>{paymentMethodsNames[inputValue]}</span>
+        <span>{paymentMethodsNames[paymentMethod]}</span>
       </div>
     </PaymentMethodCardContainer>
   )
