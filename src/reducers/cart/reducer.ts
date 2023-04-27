@@ -54,7 +54,6 @@ export function cartReducer(state: CartState, action: any) {
 
     case ActionTypes.UPDATE_CART: {
       return produce(state, (draft) => {
-        debugger
         draft.cartItems = draft.cartItems.map((cartItem) => {
           if (cartItem.id === action.payload.itemId) {
             return { ...cartItem, quantity: action.payload.quantity }
@@ -62,6 +61,12 @@ export function cartReducer(state: CartState, action: any) {
             return cartItem
           }
         })
+      })
+    }
+
+    case ActionTypes.CLEAR_CART: {
+      return produce(state, (draft) => {
+        draft.cartItems = []
       })
     }
 

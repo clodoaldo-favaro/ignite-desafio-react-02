@@ -1,9 +1,11 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as zod from 'zod'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { NewOrderForm } from './components/NewOrderForm'
+import { CartContext } from '../../contexts/CartContext'
 
 const newOrderFormValidationSchema = zod.object({
   cep: zod.string().min(8, 'CEP inválido').max(8, 'CEP inválido'),
@@ -35,9 +37,11 @@ export function Checkout() {
 
   const { handleSubmit, watch, reset } = newOrderForm
 
+  const { clearCart } = useContext(CartContext)
+
   function handleCreateNewOrder(data: NewOrderFormData) {
-    console.log(data)
     reset()
+    clearCart()
     navigate('/success')
   }
 

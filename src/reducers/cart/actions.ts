@@ -4,11 +4,13 @@ export type CartAction =
   | { type: 'add'; cartItem: CreateCartItemData }
   | { type: 'remove'; itemId: number }
   | { type: 'update'; itemId: number; quantity: number }
+  | { type: 'clear' }
 
 export enum ActionTypes {
   ADD_TO_CART = 'ADD_TO_CART',
   REMOVE_FROM_CART = 'REMOVE_FROM_CART',
   UPDATE_CART = 'UPDATE_CART',
+  CLEAR_CART = 'CLEAR_CART',
 }
 
 export function addToCartAction(newItem: CreateCartItemData) {
@@ -36,5 +38,11 @@ export function updateCartAction(itemId: number, quantity: number) {
       itemId,
       quantity,
     },
+  }
+}
+
+export function clearCartAction() {
+  return {
+    type: ActionTypes.CLEAR_CART,
   }
 }
